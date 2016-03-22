@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pack buddy</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create_profile">CreateProfile</string>
+    <string name="take_photo">Take photo</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="home_city">Home city</string>
+    <string name="title_activity_start_app">Start_app</string>
+    <string name="already_member">Already a member?</string>
+    <string name="create_profile">Create a profile</string>
+</resources>
