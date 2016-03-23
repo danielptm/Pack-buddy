@@ -30,7 +30,7 @@ public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
 
     }
 
-    String testPath = "http://192.168.156.48:8181/Pack_pal/CreateProfile";
+    String testPath = "http://172.20.10.5:8181/Pack_pal/CreateProfile";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
 
     public SendJson(ProfileBean pfb){

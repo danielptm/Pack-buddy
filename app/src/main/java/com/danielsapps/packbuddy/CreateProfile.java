@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,8 +11,6 @@ import com.danielsapps.packbuddycontroller.SendJson;
 
 import com.danielsapps.packbuddycontroller.LocalDb;
 import com.danielsapps.packbuddycontroller.ProfileBean;
-
-import java.io.ByteArrayOutputStream;
 import java.util.concurrent.ExecutionException;
 
 
