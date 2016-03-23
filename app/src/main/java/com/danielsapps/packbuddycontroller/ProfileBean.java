@@ -11,9 +11,9 @@ public class ProfileBean implements Serializable{
     String email;
     String homeCity;
     String password;
-    byte[] img;
+    String img;
 
-    public ProfileBean(String name, String email, String homeCity, String password, byte[] img){
+    public ProfileBean(String name, String email, String homeCity, String password, String img){
         this.name = name;
         this.email=email;
         this.homeCity=homeCity;
@@ -36,7 +36,7 @@ public class ProfileBean implements Serializable{
         return password;
     }
 
-    public byte[] getImg() {
+    public String getImg() {
         return img;
     }
 
@@ -56,7 +56,7 @@ public class ProfileBean implements Serializable{
         this.homeCity = homeCity;
     }
 
-    public void setImg(byte[] img) {
+    public void setImg(String img) {
         this.img = img;
     }
 }

@@ -29,7 +29,8 @@ public class Start_app extends AppCompatActivity {
 //TODO: 3 svåraste delarna
 
 //TODO: Create a profile and load it into the remote db.
-//TODO: Log into the profile with the user name and the data, and retrieve their information.
+    //On android side, create a class that encodes the byte[] file as a 64 bit encoded string.
+    // On Servlet side, create a class in the db package that takes profile data and stores in as a row in db.
 
 //TODO: Once logged in, they can do a search to see if there are hostels nearby
 //TODO: 2) Load a list of hostels in the area based up on a google search for business with the names hostel or hotel.

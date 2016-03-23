@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.danielsapps.packbuddycontroller.LocalDb;
 import com.danielsapps.packbuddycontroller.ProfileBean;
 
 import java.io.ByteArrayOutputStream;
+import java.util.concurrent.ExecutionException;
 
 
 public class CreateProfile extends AppCompatActivity {
@@ -31,28 +33,22 @@ public class CreateProfile extends AppCompatActivity {
         EditText homeCity = (EditText) findViewById(R.id.homeCityTextEntry);
         EditText password = (EditText) findViewById(R.id.passwordEditText);
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.camera);
-        ProfileBean pfb = new ProfileBean(name.getText().toString(), email.getText().toString(),
-                homeCity.getText().toString(), password.getText().toString(), getImageAsByte(bm));
         imv = (ImageView) findViewById(R.id.profileImage);
-        SendJson sendJson = new SendJson(pfb);
+        SendJson sendJson = new SendJson(name.getText().toString(), email.getText().toString(),
+                homeCity.getText().toString(), password.getText().toString(),bm);
         sendJson.execute();
-
+        try {
+            Bitmap str64Bit = sendJson.get();
+            imv.setImageBitmap(str64Bit);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setPictureAndMoveToHomePage(ProfileBean pfb){
         //This should set the picture, maybe pause for like 500 ms or 750, and then move to the home screen.
 
-
-    }
-
-    public byte[] getImageAsByte(Bitmap img){
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        img.compress(Bitmap.CompressFormat.PNG,0,os);
-        return os.toByteArray();
-    }
-
-    public Bitmap getImageAsBitmap(byte[] byteImg){
-        Bitmap bm = BitmapFactory.decodeByteArray(byteImg, 0 , byteImg.length );
-        return bm;
     }
 }
