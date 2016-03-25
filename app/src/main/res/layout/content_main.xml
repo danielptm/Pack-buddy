@@ -9,25 +9,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.danielsapps.packbuddy.Start_app"
-    tools:showIn="@layout/start_app">
+    tools:context="com.danielsapps.packbuddy.MainActivity"
+    tools:showIn="@layout/main"
+    android:onClick="moveToCreateProfile">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/already_member"
+        android:text="Create Profile"
+        android:id="@+id/button"
+        android:layout_marginBottom="99dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp"
-        android:id="@+id/alreadyAMemberButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_profile"
-        android:id="@+id/createProfileButton"
-        android:layout_marginTop="67dp"
-        android:layout_alignTop="@+id/alreadyAMemberButton"
-        android:layout_centerHorizontal="true"
         android:onClick="moveToCreateProfile" />
+
 </RelativeLayout>

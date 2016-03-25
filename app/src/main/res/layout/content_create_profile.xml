@@ -12,20 +12,13 @@
     tools:context="com.danielsapps.packbuddy.CreateProfile"
     tools:showIn="@layout/create_profile">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/profileImage"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/outline" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/take_photo"
         android:id="@+id/photoButton"
-        android:layout_below="@+id/profileImage"
+        android:onClick="moveToCameraViewAndTakePicture"
+        android:layout_above="@+id/nameTextEntry"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -35,8 +28,9 @@
         android:text="@string/name"
         android:ems="10"
         android:id="@+id/nameTextEntry"
-        android:layout_below="@+id/photoButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/emailTextEntry"
+        android:layout_alignLeft="@+id/emailTextEntry"
+        android:layout_alignStart="@+id/emailTextEntry" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,9 +39,9 @@
         android:text="@string/email"
         android:ems="10"
         android:id="@+id/emailTextEntry"
-        android:layout_below="@+id/nameTextEntry"
-        android:layout_alignLeft="@+id/nameTextEntry"
-        android:layout_alignStart="@+id/nameTextEntry" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -67,8 +61,8 @@
         android:ems="10"
         android:id="@+id/passwordEditText"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/homeCityTextEntry"
-        android:layout_alignStart="@+id/homeCityTextEntry" />
+        android:layout_alignLeft="@+id/nameTextEntry"
+        android:layout_alignStart="@+id/nameTextEntry" />
 
     <Button
         android:layout_width="wrap_content"
@@ -76,9 +70,9 @@
         android:text="Submit"
         android:id="@+id/submitButton"
         android:onClick="createProfile"
-        android:layout_below="@+id/passwordEditText"
-        android:layout_alignLeft="@+id/photoButton"
-        android:layout_alignStart="@+id/photoButton" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="67dp"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,6 +81,22 @@
         android:text="password"
         android:id="@+id/textView"
         android:layout_below="@+id/homeCityTextEntry"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/submitButton"
+        android:layout_toStartOf="@+id/submitButton" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+        android:layout_above="@+id/photoButton"
+        android:src="@drawable/outline"
+        android:layout_alignLeft="@+id/photoButton"
+        android:layout_alignStart="@+id/photoButton"
+        android:layout_alignRight="@+id/photoButton"
+        android:layout_alignEnd="@+id/photoButton" />
 
 </RelativeLayout>

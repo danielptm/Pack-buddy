@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Base64;
+
+import com.danielsapps.model.ProfileBean;
 import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,25 +27,20 @@ import java.net.URL;
 public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
     ProfileBean pfb;
 
-    public SendJson(String name, String email, String homeCity, String password, Bitmap bm){
-        pfb = new ProfileBean(name, email, homeCity, password, convertTo64BitString(bm) );
+    public SendJson(String name, String email, String homeCity, String password, Bitmap b){
+        pfb = new ProfileBean(name, email, homeCity, password, convertTo64BitString(b) );
 
     }
 
-    String testPath = "http://172.20.10.5:8181/Pack_pal/CreateProfile";
+    String testPath = "http://10.0.1.7:8181/Pack_pal/CreateProfile";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
 
-    public SendJson(ProfileBean pfb){
-        this.pfb=pfb;
-    }
 
     @Override
     protected Bitmap doInBackground(Bitmap... strings) {
-        ProfileBean xyz=null;
+        ProfileBean profileBeanToSend=null;
         JSONObject jobj = getProfileAsJson();
         Bitmap image64Bit;
-
-
         try {
             Gson gson = new Gson();
             URL url = new URL(testPath);
@@ -57,13 +54,13 @@ public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
             writer.close();
             InputStream is = httpConn.getInputStream();
             String x = convertStreamToString(is);
-            xyz = gson.fromJson(x, ProfileBean.class);
+            profileBeanToSend = gson.fromJson(x, ProfileBean.class);
             httpConn.disconnect();
 
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-        image64Bit = getImageAsBitmap(xyz.getImg());
+        image64Bit = getImageAsBitmap(profileBeanToSend.getImg());
         return image64Bit;
     }
 

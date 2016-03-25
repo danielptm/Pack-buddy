@@ -3,6 +3,10 @@
     package="com.danielsapps.packbuddy">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Start_app"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,13 +25,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PingServer"
-            android:label="@string/title_activity_create_profile"
+            android:name=".CreateProfile"
+            android:label="CreateProfile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateProfile"
-            android:label="@string/title_activity_start_app"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".TakePicture"
+            android:label="@string/title_activity_take_picture"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".MainActivity"-->
+            <!--android:label="@string/title_activity_main"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"></activity>-->
     </application>
 
 </manifest> <!-- android:name=".StartScreen" -->

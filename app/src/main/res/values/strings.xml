@@ -9,4 +9,10 @@
     <string name="title_activity_start_app">Start_app</string>
     <string name="already_member">Already a member?</string>
     <string name="create_profile">Create a profile</string>
+    <string name="title_activity_take_picture">TakePicture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_create_profile2">CreateProfile2</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

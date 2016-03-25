@@ -1,6 +1,5 @@
 package com.danielsapps.packbuddycontroller;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+
+import com.danielsapps.model.ProfileBean;
 
 /**
  * Created by daniel on 3/20/16.

@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.danielsapps.packbuddy.Start_app">
+    tools:context="com.danielsapps.packbuddy.TakePicture">
 
-    <include layout="@layout/content_start_app" />
+
+
+    <include layout="@layout/content_take_picture" />
 
 </android.support.design.widget.CoordinatorLayout>

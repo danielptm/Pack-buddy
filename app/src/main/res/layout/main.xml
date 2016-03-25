@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.danielsapps.packbuddy.StartScreen">
+    tools:context="com.danielsapps.packbuddy.MainActivity">
 
 
-    <include layout="@layout/content_start_screen" />
+
+    <include layout="@layout/content_main" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

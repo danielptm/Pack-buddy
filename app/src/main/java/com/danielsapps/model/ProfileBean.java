@@ -1,4 +1,4 @@
-package com.danielsapps.packbuddycontroller;
+package com.danielsapps.model;
 
 import java.io.Serializable;
 

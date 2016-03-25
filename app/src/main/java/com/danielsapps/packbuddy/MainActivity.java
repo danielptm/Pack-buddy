@@ -6,18 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 
-public class Start_app extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.start_app);
+        setContentView(R.layout.main);
+        System.out.println("hiiiii");
 
     }
 
 
     public void moveToCreateProfile(View view){
-        Intent i = new Intent(this, CreateProfile.class);
+        Intent i = new Intent(this, TakePicture.class);
         startActivity(i);
     }
 }
@@ -28,11 +29,12 @@ public class Start_app extends AppCompatActivity {
 
 //TODO: 3 svåraste delarna
 
-//TODO: Create a profile and load it into the remote db.
-    //On android side, create a class that encodes the byte[] file as a 64 bit encoded string.
-    // On Servlet side, create a class in the db package that takes profile data and stores in as a row in db.
 
+//TODO: Do camera class....So they take a picture, and that is savingto the profile instead of the camera.png.
+//
 //TODO: Once logged in, they can do a search to see if there are hostels nearby
+//Pass the profile bean object to the other views.
+//How should the view looK?
 //TODO: 2) Load a list of hostels in the area based up on a google search for business with the names hostel or hotel.
 //TODO: Use googleplaces api https://developers.google.com/places/android-api/signup#release-cert
 //TODO: Get the gps coordinates of cbp, and if the person is within 50 m of CBP, then they can check in.

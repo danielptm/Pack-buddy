@@ -2,9 +2,8 @@ package com.danielsapps.packbuddycontroller;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.widget.ImageView;
 
-import com.danielsapps.packbuddy.R;
+import com.danielsapps.model.ProfileBean;
 
 /**
  * Created by daniel on 3/21/16.
