@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cpf"
+    >
+
+    <Button
+        android:id="@+id/photoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nameTextEntry"
+        android:layout_centerHorizontal="true"
+        android:text="@string/take_photo"
+        android:onClick="changeToCameraView" />
+
+    <EditText
+        android:id="@+id/nameTextEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/emailTextEntry"
+        android:layout_alignLeft="@+id/emailTextEntry"
+        android:layout_alignStart="@+id/emailTextEntry"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name" />
+
+    <EditText
+        android:id="@+id/emailTextEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/homeCityTextEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/emailTextEntry"
+        android:layout_alignStart="@+id/emailTextEntry"
+        android:layout_below="@+id/emailTextEntry"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/home_city" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nameTextEntry"
+        android:layout_alignStart="@+id/nameTextEntry"
+        android:layout_below="@+id/textView"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="67dp"
+        android:onClick="createProfile"
+        android:text="Submit" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeCityTextEntry"
+        android:layout_toLeftOf="@+id/submitButton"
+        android:layout_toStartOf="@+id/submitButton"
+        android:text="password"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/photoButton"
+        android:layout_alignEnd="@+id/photoButton"
+        android:layout_alignLeft="@+id/photoButton"
+        android:layout_alignRight="@+id/photoButton"
+        android:layout_alignStart="@+id/photoButton"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:minHeight="100dp"
+        android:minWidth="100dp"
+         />
+
+</RelativeLayout>

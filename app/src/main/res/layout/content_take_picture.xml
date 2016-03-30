@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Take Picture"
-        android:id="@+id/pictureButton"
+        android:id="@+id/fragCameraButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="takePicture" />
@@ -25,7 +25,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/surfaceView"
-        android:layout_above="@+id/pictureButton"
+        android:layout_above="@+id/fragCameraButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

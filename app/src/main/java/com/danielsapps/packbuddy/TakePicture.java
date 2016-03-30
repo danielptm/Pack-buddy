@@ -1,5 +1,6 @@
 package com.danielsapps.packbuddy;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,11 +13,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 
+import com.danielsapps.model.DbHandler;
 import com.danielsapps.packbuddycontroller.PackBuddyCamera;
 
-import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 public class TakePicture extends AppCompatActivity {
     Camera cam;
@@ -95,20 +97,14 @@ public class TakePicture extends AppCompatActivity {
     };
 
 
-
-
     public void savePictureAndGoToCreateProfile(byte[] imageData){
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Bitmap bm = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
-        bm.compress(Bitmap.CompressFormat.PNG, 5, baos);
-        byte[] b = baos.toByteArray();
+        DbHandler dbh = new DbHandler(this, null, null, 1);
+        dbh.insertPicture(imageData);
+        dbh.insertPicture(imageData);
         Intent i = new Intent(this, CreateProfile.class);
-        i.putExtra("image", b);
+        i.putExtra("image", "profilePicture");
         startActivity(i);
         finish();
-
-
-
 
     }
 

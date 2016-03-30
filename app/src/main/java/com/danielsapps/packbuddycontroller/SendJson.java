@@ -10,15 +10,17 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
+
+import android.util.Log;
 
 
 /**
@@ -26,59 +28,59 @@ import java.net.URL;
  */
 public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
     ProfileBean pfb;
+    String info="infoTag";
 
     public SendJson(String name, String email, String homeCity, String password, Bitmap b){
         pfb = new ProfileBean(name, email, homeCity, password, convertTo64BitString(b) );
 
     }
 
+    //192.168.156.49
     String testPath = "http://10.0.1.7:8181/Pack_pal/CreateProfile";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
 
 
     @Override
     protected Bitmap doInBackground(Bitmap... strings) {
-        ProfileBean profileBeanToSend=null;
-        JSONObject jobj = getProfileAsJson();
-        Bitmap image64Bit;
+
         try {
-            Gson gson = new Gson();
+            String jobpfb = getJsonStringWithGson(pfb);
             URL url = new URL(testPath);
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setDoOutput(true);
             httpConn.setRequestMethod("POST");
             httpConn.setRequestProperty("Content-Type", "application/json");
             httpConn.connect();
-            Writer writer = new BufferedWriter( new OutputStreamWriter(httpConn.getOutputStream(), "UTF-8" ));
-            writer.write(jobj.toString());
-            writer.close();
+            OutputStream os = httpConn.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os);
+
+
+            Log.i(info, String.valueOf(jobpfb.length()));
+            osw.write(jobpfb.toString());
+
+
+
+            osw.flush();
+            osw.close();
+
             InputStream is = httpConn.getInputStream();
             String x = convertStreamToString(is);
-            profileBeanToSend = gson.fromJson(x, ProfileBean.class);
+            is.close();
+
             httpConn.disconnect();
 
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-        image64Bit = getImageAsBitmap(profileBeanToSend.getImg());
-        return image64Bit;
+
+        return null;
     }
 
-    public JSONObject getProfileAsJson(){
-        JSONObject jobj=null;
-        try {
-
-            jobj = new JSONObject();
-            jobj.put("img", this.pfb.getImg());
-            jobj.put("password", this.pfb.getPassword());
-            jobj.put("homeCity", this.pfb.getHomeCity());
-            jobj.put("email", this.pfb.getEmail());
-            jobj.put("name", this.pfb.getName());
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jobj;
+    public String getJsonStringWithGson(ProfileBean pfb){
+        Gson gson=null;
+        gson = new Gson();
+        String x = gson.toJson(pfb, ProfileBean.class);
+        return x;
     }
 
     private String convertStreamToString(InputStream is){
@@ -87,6 +89,7 @@ public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
     	String line;
     	try {
 			while ((line = r.readLine()) != null) {
+//                Log.i(info, line);
 			    total.append(line);
 			}
 		} catch (IOException e) {
