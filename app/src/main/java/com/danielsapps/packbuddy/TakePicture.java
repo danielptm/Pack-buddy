@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import com.danielsapps.model.DbHandler;
 import com.danielsapps.packbuddycontroller.PackBuddyCamera;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,6 +29,7 @@ public class TakePicture extends AppCompatActivity {
     SurfaceView sv;
     SurfaceHolder svHolder;
     ImageView iv;
+    String info = "info";
 
 
     @Override
@@ -98,11 +102,23 @@ public class TakePicture extends AppCompatActivity {
 
 
     public void savePictureAndGoToCreateProfile(byte[] imageData){
-        DbHandler dbh = new DbHandler(this, null, null, 1);
-        dbh.insertPicture(imageData);
-        dbh.insertPicture(imageData);
+        String fileName = "picture";
+        FileOutputStream os;
+        File f = new File(getFilesDir(),fileName);
+        try {
+            os = openFileOutput(fileName, Context.MODE_PRIVATE);
+            os.write(imageData, 0, imageData.length);
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.d(info, String.valueOf(getFilesDir()));
+        Log.d(info, "line 116");
         Intent i = new Intent(this, CreateProfile.class);
-        i.putExtra("image", "profilePicture");
+
+        i.putExtra("image", "picture");
         startActivity(i);
         finish();
 
