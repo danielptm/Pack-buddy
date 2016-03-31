@@ -16,4 +16,5 @@
     <string name="title_activity_create_profile2">CreateProfile2</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_hostel_search">HostelSearch</string>
 </resources>

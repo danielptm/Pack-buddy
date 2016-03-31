@@ -83,6 +83,7 @@ public class TakePicture extends AppCompatActivity {
             cam = pfc.openFrontCamera();
             Camera.Parameters parameters = cam.getParameters();
             parameters.setPictureSize(50, 50);
+            parameters.setJpegQuality(10);
             cam.setParameters(parameters);
             cam.setDisplayOrientation(90);
             cam.setPreviewDisplay(sv.getHolder());

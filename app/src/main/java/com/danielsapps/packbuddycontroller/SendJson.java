@@ -35,16 +35,21 @@ public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
 
     }
 
-    //192.168.156.49
-    String testPath = "http://10.0.1.7:8181/Pack_pal/CreateProfile";
+    //10.0.1.7
+    //192.168.156.45
+    //192.168.156.45
+    //192.168.156.45
+    //10.255.228.211
+    String testPath = "http://10.255.228.211:8181/Pack_pal/CreateProfile";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
+    String jobpfb;
 
 
     @Override
     protected Bitmap doInBackground(Bitmap... strings) {
 
         try {
-            String jobpfb = getJsonStringWithGson(pfb);
+            jobpfb = getJsonStringWithGson(pfb);
             URL url = new URL(testPath);
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setDoOutput(true);
@@ -128,5 +133,8 @@ public class SendJson extends AsyncTask<Bitmap, Bitmap, Bitmap> {
 
     }
 
+    public String getJobpfb() {
+        return jobpfb;
+    }
 }
 

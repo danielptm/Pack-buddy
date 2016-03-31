@@ -1,26 +1,20 @@
 package com.danielsapps.packbuddy;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import com.danielsapps.packbuddycontroller.SendJson;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 
 public class CreateProfile extends AppCompatActivity {
@@ -41,8 +35,6 @@ public class CreateProfile extends AppCompatActivity {
         String b = (String) getIntent().getExtras().get("image");
         String filePath = getFilesDir() + "/" + b;
 
-        Log.d(info, "line 37");
-        Log.d(info, filePath);
         File f = new File(filePath);
         imageByte = new byte[(int) f.length()];
         try {
@@ -54,26 +46,10 @@ public class CreateProfile extends AppCompatActivity {
             e.printStackTrace();
         }
         f.delete();
-        Log.d(info, "line 48");
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 5;
         iv = (ImageView) findViewById(R.id.imageView);
-        bm = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
-//        bm.compress(Bitmap.CompressFormat.PNG, 25, baos);
-//        try {
-//            baos.flush();
-//            baos.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        decodeBm = BitmapFactory.decodeStream(new ByteArrayInputStream(baos.toByteArray()));
-//        try {
-//            baos.flush();
-//            baos.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
+        bm = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length, options);
         iv.setImageBitmap(bm);
         iv.setRotation(270);
 //    }
@@ -98,10 +74,9 @@ public class CreateProfile extends AppCompatActivity {
         SendJson sendJson = new SendJson(stringName, stringEmail,
                 stringHomeCity, stringPassword,bm);
         sendJson.execute();
-//        Intent i = new Intent(this, HomePage.class);
-//        i.putExtra("email", stringEmail);
-//        i.putExtra("password", stringPassword);
-//        startActivity(i);
+        Intent i = new Intent(this, HostelSearch.class);
+        i.putExtra("email", stringEmail);
+        startActivity(i);
 
     }
 }
