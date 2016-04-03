@@ -6,15 +6,19 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.danielsapps.packbuddycontroller.SendJson;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 
 public class CreateProfile extends AppCompatActivity {
@@ -62,7 +66,7 @@ public class CreateProfile extends AppCompatActivity {
      * @param view
      */
 
-    public void createProfile(View view){
+    public void createProfile(View view) throws ExecutionException, InterruptedException {
         EditText name = (EditText) findViewById(R.id.nameTextEntry);
         EditText email = (EditText) findViewById(R.id.emailTextEntry);
         EditText homeCity = (EditText) findViewById(R.id.homeCityTextEntry);
@@ -74,9 +78,18 @@ public class CreateProfile extends AppCompatActivity {
         SendJson sendJson = new SendJson(stringName, stringEmail,
                 stringHomeCity, stringPassword,bm);
         sendJson.execute();
-        Intent i = new Intent(this, HostelSearch.class);
-        i.putExtra("email", stringEmail);
-        startActivity(i);
+        String message = sendJson.get();
+        if(message.equals("Welcome!")) {
+            Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            Intent i = new Intent(this, HostelSearch.class);
+            i.putExtra("email", stringEmail);
+            i.putExtra("name", stringName);
+            startActivity(i);
+        }
+        else {
+            Toast t = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+            t.show();
 
+        }
     }
 }

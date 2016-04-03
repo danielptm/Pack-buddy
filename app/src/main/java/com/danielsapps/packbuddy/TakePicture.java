@@ -24,7 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class TakePicture extends AppCompatActivity {
-    Camera cam;
+    Camera cam=null;
     PackBuddyCamera pfc;
     SurfaceView sv;
     SurfaceHolder svHolder;
@@ -81,9 +81,11 @@ public class TakePicture extends AppCompatActivity {
     public void startPreview(){
         try {
             cam = pfc.openFrontCamera();
+            if(cam == null){Log.d(info, "Camera equals null");}
+
             Camera.Parameters parameters = cam.getParameters();
             parameters.setPictureSize(50, 50);
-            parameters.setJpegQuality(10);
+            parameters.setJpegQuality(5);
             cam.setParameters(parameters);
             cam.setDisplayOrientation(90);
             cam.setPreviewDisplay(sv.getHolder());

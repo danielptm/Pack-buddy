@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -38,14 +41,17 @@
         <!-- android:label="@string/title_activity_main" -->
         <!-- android:theme="@style/AppTheme.NoActionBar"></activity> -->
         <activity
-            android:name="com.danielsapps.HomePage"
-            android:label="@string/title_activity_home_page"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".HostelSearch"
             android:label="@string/title_activity_hostel_search"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LogIn"
+            android:label="@string/title_activity_log_in"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
     </application>
 
 </manifest> <!-- android:name=".StartScreen" -->

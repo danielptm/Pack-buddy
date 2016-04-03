@@ -20,4 +20,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, TakePicture.class);
         startActivity(i);
     }
+
+    public void moveToLogIn(View view){
+        Intent i = new Intent(this, LogIn.class);
+        startActivity(i);
+    }
 }
