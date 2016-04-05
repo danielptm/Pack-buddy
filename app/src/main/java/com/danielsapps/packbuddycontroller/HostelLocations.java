@@ -32,6 +32,15 @@ public class HostelLocations {
         }catch(SecurityException e){LocationServicePermissionAccepted=false;}
     }
 
+    public HostelLocations(){
+
+        lm = (android.location.LocationManager) this.a.getSystemService(Context.LOCATION_SERVICE);
+        try {
+            lm.requestLocationUpdates(android.location.LocationManager.NETWORK_PROVIDER, 0, 0, Ll);
+            LocationServicePermissionAccepted=true;
+        }catch(SecurityException e){LocationServicePermissionAccepted=false;}
+    }
+
     LocationListener Ll = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
@@ -41,7 +50,9 @@ public class HostelLocations {
             cbp.setLongitude(cbpLong);
             distanceToCbp = location.distanceTo(cbp);
             tv.setText(Float.toString(distanceToCbp));
-
+//            if(distanceToCbp>20000){
+//                checkOutOfHostel();
+//            }
         }
 
         @Override
@@ -68,8 +79,11 @@ public class HostelLocations {
         ArrayList<String> al=null;
         if(distanceToCbp<200000){
             al = new ArrayList<String>();
-            al.add("CityBackpackers hostel");
+            al.add("CityBackpackers");
         }
         return al;
+    }
+    public void checkOutOfHostel(){
+
     }
 }

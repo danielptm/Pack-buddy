@@ -21,7 +21,7 @@ public class CreateProfileTest extends ActivityInstrumentationTestCase2 {
         super(Application.class);
     }
 
-    @Test
+    @Ignore
     public void testSendJson() {
         String infoTag = "info";
 

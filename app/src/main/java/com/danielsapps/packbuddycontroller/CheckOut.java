@@ -1,10 +1,10 @@
 package com.danielsapps.packbuddycontroller;
 
-import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.util.Log;
-import com.danielsapps.model.ProfileBean;
+
+import com.danielsapps.model.EmailAndHostel;
 import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,26 +16,20 @@ import java.net.URL;
 
 
 /**
- * Created by daniel on 3/31/16.
+ * Created by daniel on 4/4/16.
  */
-public class LoadProfile extends AsyncTask<ProfileBean, ProfileBean, ProfileBean>{
-    String jsString="jsString";
-    LocationManager lm;
-    String testPath = Paths.myPhone+"/CheckIn";
-    String email;
-    String hostelName=null;
-    Gson gson;
-    ProfileBean pfb;
+public class CheckOut extends AsyncTask<Void, Void, Void> {
+    String testPath = Paths.myPhone+"/CheckOut";
+    EmailAndHostel eah;
 
-    public LoadProfile(String email ){
-        this.email = email;
+    public CheckOut(EmailAndHostel eah){
+        this.eah=eah;
     }
 
-
     @Override
-    protected ProfileBean doInBackground(ProfileBean... params) {
+    protected Void doInBackground(Void... params) {
         try {
-            gson = new Gson();
+            Gson gson = new Gson();
             URL url = new URL(testPath);
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setDoOutput(true);
@@ -44,17 +38,15 @@ public class LoadProfile extends AsyncTask<ProfileBean, ProfileBean, ProfileBean
             OutputStream os = httpConn.getOutputStream();
             OutputStreamWriter osw = new OutputStreamWriter(os);
 
-            osw.write(this.email);
+            String x = gson.toJson(this.eah);
+            osw.write(x);
             osw.flush();
             osw.close();
-
 
             InputStream is = httpConn.getInputStream();
             DataConversion dc = new DataConversion();
             String jsonString = dc.convertStreamToString2(is);
             is.close();
-
-            pfb = gson.fromJson(jsonString, ProfileBean.class);
 
             httpConn.disconnect();
 
@@ -65,6 +57,7 @@ public class LoadProfile extends AsyncTask<ProfileBean, ProfileBean, ProfileBean
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return pfb;
+
+        return null;
     }
 }

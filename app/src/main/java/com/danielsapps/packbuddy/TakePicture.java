@@ -84,8 +84,8 @@ public class TakePicture extends AppCompatActivity {
             if(cam == null){Log.d(info, "Camera equals null");}
 
             Camera.Parameters parameters = cam.getParameters();
-            parameters.setPictureSize(50, 50);
-            parameters.setJpegQuality(5);
+            parameters.setPictureSize(25, 25);
+            parameters.setJpegQuality(1);
             cam.setParameters(parameters);
             cam.setDisplayOrientation(90);
             cam.setPreviewDisplay(sv.getHolder());

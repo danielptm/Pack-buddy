@@ -18,23 +18,35 @@
         android:id="@+id/checkInImage"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingLeft="5dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/CheckInHostelListview"
+        android:layout_below="@+id/checkInImage"
+        android:layout_above="@+id/button3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check out"
+        android:id="@+id/button3"
+        android:onClick="checkOut"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
         android:id="@+id/CheckInHostelName"
-        android:layout_below="@+id/checkInImage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:id="@+id/CheckInHostelListview"
-        android:layout_below="@+id/CheckInHostelName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/checkInImage"
+        android:layout_toRightOf="@+id/checkInImage"
+        android:layout_marginBottom="26dp"
+        android:layout_alignRight="@+id/CheckInHostelListview"
+        android:layout_alignEnd="@+id/CheckInHostelListview" />
 </RelativeLayout>
