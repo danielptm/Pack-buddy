@@ -12,41 +12,63 @@
     tools:context="com.danielsapps.packbuddy.HomePage"
     tools:showIn="@layout/home_page">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/checkInImage"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingLeft="5dp" />
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tabHost">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:id="@+id/CheckInHostelListview"
-        android:layout_below="@+id/checkInImage"
-        android:layout_above="@+id/button3" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check out"
-        android:id="@+id/button3"
-        android:onClick="checkOut"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp" />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/CheckInHostelName"
-        android:layout_alignBottom="@+id/checkInImage"
-        android:layout_toRightOf="@+id/checkInImage"
-        android:layout_marginBottom="26dp"
-        android:layout_alignRight="@+id/CheckInHostelListview"
-        android:layout_alignEnd="@+id/CheckInHostelListview" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/CheckInHostelListview"
+                        android:layout_below="@+id/checkInImage"
+                        android:layout_above="@+id/button3"
+                        android:layout_weight="0.53" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/editText"
+                        android:text="hiii" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </TabHost>
+
 </RelativeLayout>

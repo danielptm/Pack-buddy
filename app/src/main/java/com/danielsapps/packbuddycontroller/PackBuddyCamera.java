@@ -7,6 +7,8 @@ import android.util.Log;
 
 /**
  * Created by daniel on 3/24/16.
+ * @author daniel
+ * @author daniel
  */
 public class PackBuddyCamera extends AsyncTask<Void, Void, Void> {
     String info2="info";

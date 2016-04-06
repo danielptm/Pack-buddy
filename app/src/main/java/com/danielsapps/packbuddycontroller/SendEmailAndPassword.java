@@ -19,6 +19,7 @@ import java.net.URL;
 
 /**
  * Created by daniel on 4/2/16.
+ * @author daniel
  */
 public class SendEmailAndPassword extends AsyncTask<Boolean, Boolean, Boolean>{
     Boolean validUserPasswordAndEmail;

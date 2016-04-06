@@ -12,6 +12,7 @@ import java.net.URL;
 
 /**
  * Created by daniel on 4/3/16.
+ * @author daniel
  */
 public class CheckIn extends AsyncTask<ProfileBean, ProfileBean, ProfileBean> {
     String email;

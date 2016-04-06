@@ -17,6 +17,7 @@ import java.net.URL;
 
 /**
  * Created by daniel on 4/4/16.
+ * @author daniel
  */
 public class CheckOut extends AsyncTask<Void, Void, Void> {
     String testPath = Paths.myPhone+"/CheckOut";

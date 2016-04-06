@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.danielsapps.packbuddy.R;
 
-
+/**
+ * @author daniel
+ */
 public class CreateProfileFragment extends Fragment {
 
 

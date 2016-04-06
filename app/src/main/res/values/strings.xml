@@ -18,4 +18,5 @@
     <string name="title_activity_home_page">HomePage</string>
     <string name="title_activity_hostel_search">HostelSearch</string>
     <string name="title_activity_log_in">LogIn</string>
+    <string name="title_activity_profile">Profile</string>
 </resources>

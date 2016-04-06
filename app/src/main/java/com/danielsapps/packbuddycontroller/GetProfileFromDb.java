@@ -21,6 +21,7 @@ import java.net.URL;
 
 /**
  * Created by daniel on 3/28/16.
+ * @author daniel
  */
 public class GetProfileFromDb extends AsyncTask<ProfileBean, ProfileBean, ProfileBean> {
     String email;

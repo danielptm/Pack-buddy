@@ -17,6 +17,7 @@ import java.net.URL;
 
 /**
  * Created by daniel on 3/31/16.
+ * @author daniel
  */
 public class LoadProfile extends AsyncTask<ProfileBean, ProfileBean, ProfileBean>{
     String jsString="jsString";

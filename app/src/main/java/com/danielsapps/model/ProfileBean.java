@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * Created by daniel on 3/20/16.
+ * @author daniel
  */
 public class ProfileBean implements Serializable{
     String name;

@@ -14,6 +14,7 @@ import android.util.Log;
 
 /**
  * Created by daniel on 3/21/16.
+ * @author daniel
  */
 public class SendJson extends AsyncTask<String, String, String> {
     ProfileBean pfb;
@@ -21,8 +22,8 @@ public class SendJson extends AsyncTask<String, String, String> {
     Activity a;
     String message;
 
-    public SendJson(String name, String email, String homeCity, String password, Bitmap b){
-        pfb = new ProfileBean(name, email, homeCity, password, DataConversion.convertTo64BitString(b) );
+    public SendJson(String name, String email, String homeCity, String password, String b){
+        pfb = new ProfileBean(name, email, homeCity, password, b );
 
     }
 

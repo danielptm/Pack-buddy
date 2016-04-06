@@ -3,6 +3,7 @@ package com.danielsapps.packbuddycontroller;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 
 import com.danielsapps.model.EmailAndPasswordBean;
 import com.danielsapps.model.ProfileBean;
@@ -19,8 +20,10 @@ import java.io.InputStreamReader;
 
 /**
  * Created by daniel on 3/28/16.
+ * @author daniel
  */
 public class DataConversion {
+    static String DataConversionClass = "DataConversionClass";
 
 //    public static String convertTo64BitString(Bitmap b){
 //        return Base64.encodeToString(getImageAsByte(b), Base64.DEFAULT);
@@ -116,6 +119,7 @@ public class DataConversion {
     }
 
     public static Bitmap getImageAsBitmap(String str64Bit){
+        Log.d(DataConversionClass, str64Bit );
         byte[] b = Base64.decode(str64Bit, Base64.DEFAULT);
         return getImageAsBitmap(b);
 

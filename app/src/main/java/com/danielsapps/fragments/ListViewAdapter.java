@@ -17,7 +17,11 @@ import java.util.ArrayList;
 
 /**
  * Created by daniel on 4/5/16.
+ * mha android tutorials https://thenewboston.com/videos.php?cat=278
+ * @author daniel
  */
+
+
 public class ListViewAdapter extends ArrayAdapter<ProfileBean> {
     public ListViewAdapter(Context context, ArrayList<ProfileBean> alpfbs){
         super(context, R.layout.checked_in_row, alpfbs );

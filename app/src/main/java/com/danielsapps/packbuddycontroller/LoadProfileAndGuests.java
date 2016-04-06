@@ -22,17 +22,14 @@ import java.util.List;
 
 /**
  * Created by daniel on 4/4/16.
+ * @author daniel
  */
 public class LoadProfileAndGuests extends AsyncTask<ArrayList<ProfileBean>, ArrayList<ProfileBean>, ArrayList<ProfileBean>> {
-    String info="info";
-    String jsString="jsString";
-    String LoadProfileAndGuests="LoadProfileAndGuests";
-    LocationManager lm;
+
     String testPath = Paths.myPhone+"/loadProfileAndGuests";
     String email;
     String hostelName=null;
     Gson gson;
-    ProfileBean pfb;
     ArrayList<ProfileBean> alpfb;
     int pageToLoad;
 

@@ -13,6 +13,7 @@ import com.danielsapps.packbuddy.R;
 
 /**
  * Created by daniel on 3/25/16.
+ * @author daniel
  */
 public class CameraFragment extends Fragment {
 

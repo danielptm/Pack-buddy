@@ -2,16 +2,16 @@ package com.danielsapps.packbuddy;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import com.danielsapps.packbuddycontroller.DataConversion;
 import com.danielsapps.packbuddycontroller.SendJson;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * @author daniel
+ */
 
 public class CreateProfile extends AppCompatActivity {
     String info="info";
@@ -28,6 +31,7 @@ public class CreateProfile extends AppCompatActivity {
     InputStream is;
     byte[] imageByte;
     Bitmap decodeBm;
+    String user_pref="main user preferences";
 
 
 
@@ -51,7 +55,7 @@ public class CreateProfile extends AppCompatActivity {
         }
         f.delete();
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 5;
+        options.inSampleSize = 8;
         iv = (ImageView) findViewById(R.id.imageView);
         bm = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length, options);
         iv.setImageBitmap(bm);
@@ -75,8 +79,20 @@ public class CreateProfile extends AppCompatActivity {
         String stringEmail = email.getText().toString();
         String stringHomeCity = homeCity.getText().toString();
         String stringPassword = password.getText().toString();
+        String image64BitString = DataConversion.convertTo64BitString(bm);
+
+        SharedPreferences settings = getSharedPreferences(user_pref, 0);
+        SharedPreferences.Editor e = settings.edit();
+
+        e.putString("name", stringName);
+        e.putString("email", stringEmail);
+        e.putString("password", stringPassword);
+        e.putString("homeCity", stringHomeCity);
+        e.putString("image", image64BitString);
+        e.commit();
+
         SendJson sendJson = new SendJson(stringName, stringEmail,
-                stringHomeCity, stringPassword,bm);
+                stringHomeCity, stringPassword,image64BitString);
         sendJson.execute();
         String message = sendJson.get();
         if(message.equals("Welcome!")) {

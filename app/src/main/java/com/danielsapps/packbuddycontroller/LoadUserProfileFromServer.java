@@ -16,6 +16,7 @@ import java.net.URL;
 
 /**
  * Returns a ProfileBean from the server.
+ * @author daniel
  */
 public class LoadUserProfileFromServer extends AsyncTask<ProfileBean, ProfileBean, ProfileBean> {
     String testPath = Paths.myPhone+"/loadProfileAndGuests";

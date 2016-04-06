@@ -13,47 +13,35 @@
     tools:context="com.danielsapps.packbuddy.CreateProfile"
     tools:showIn="@layout/create_profile">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/take_photo"
-        android:id="@+id/photoButton"
-        android:onClick="moveToCameraViewAndTakePicture"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/name"
         android:ems="10"
         android:id="@+id/nameTextEntry"
-        android:layout_below="@+id/photoButton"
-        android:layout_alignLeft="@+id/emailTextEntry"
-        android:layout_alignStart="@+id/emailTextEntry" />
+        android:layout_above="@+id/textView6"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/email"
         android:ems="10"
         android:id="@+id/emailTextEntry"
-        android:layout_below="@+id/nameTextEntry"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="@string/home_city"
         android:ems="10"
         android:id="@+id/homeCityTextEntry"
-        android:layout_below="@+id/emailTextEntry"
-        android:layout_alignLeft="@+id/emailTextEntry"
-        android:layout_alignStart="@+id/emailTextEntry" />
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,8 +50,7 @@
         android:ems="10"
         android:id="@+id/passwordEditText"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/nameTextEntry"
-        android:layout_alignStart="@+id/nameTextEntry" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,8 +58,9 @@
         android:text="Submit"
         android:id="@+id/submitButton"
         android:onClick="createProfile"
-        android:layout_below="@+id/passwordEditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,8 +69,8 @@
         android:text="password"
         android:id="@+id/textView"
         android:layout_below="@+id/homeCityTextEntry"
-        android:layout_toLeftOf="@+id/submitButton"
-        android:layout_toStartOf="@+id/submitButton" />
+        android:layout_alignLeft="@+id/passwordEditText"
+        android:layout_alignStart="@+id/passwordEditText" />
 
     <ImageView
         android:layout_width="100dp"
@@ -92,7 +80,38 @@
         android:maxHeight="50dp"
         android:minHeight="100dp"
         android:minWidth="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Home city"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/emailTextEntry"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Email"
+        android:id="@+id/textView6"
+        android:layout_above="@+id/emailTextEntry"
+        android:layout_alignLeft="@+id/passwordEditText"
+        android:layout_alignStart="@+id/passwordEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Name"
+        android:id="@+id/textView7"
+        android:layout_above="@+id/nameTextEntry"
+        android:layout_alignRight="@+id/textView6"
+        android:layout_alignEnd="@+id/textView6" />
 
 </RelativeLayout>

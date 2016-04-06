@@ -7,11 +7,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 /**
  * Created by daniel on 4/3/16.
+ * @author daniel
  */
 public class HostelLocations {
     double cbpLat = 59.336374;
@@ -80,6 +82,9 @@ public class HostelLocations {
         if(distanceToCbp<200000){
             al = new ArrayList<String>();
             al.add("CityBackpackers");
+        }else{
+            Toast t = Toast.makeText(this.a, "No hostels in the area", Toast.LENGTH_LONG);
+            t.show();
         }
         return al;
     }

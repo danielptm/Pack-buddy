@@ -11,25 +11,27 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.danielsapps.packbuddy.MainActivity"
     tools:showIn="@layout/main"
-    android:onClick="moveToCreateProfile">
+    android:onClick="moveToCreateProfile"
+    android:background="@drawable/start">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Profile"
-        android:id="@+id/button"
-        android:layout_marginBottom="99dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="moveToCreateProfile" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/button5"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:onClick="moveToLogIn" />
+        android:id="@+id/button2"
+        android:onClick="moveToLogIn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Profile"
+        android:id="@+id/button7"
+        android:onClick="moveToCreateProfile"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

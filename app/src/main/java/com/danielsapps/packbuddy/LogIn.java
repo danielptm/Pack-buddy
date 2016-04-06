@@ -14,7 +14,9 @@ import com.danielsapps.packbuddycontroller.SendEmailAndPassword;
 
 import java.util.concurrent.ExecutionException;
 
-
+/**
+ * @author daniel
+ */
 public class LogIn extends AppCompatActivity {
     String info="LogIn info: ";
     TextView tvEmail;
@@ -30,8 +32,7 @@ public class LogIn extends AppCompatActivity {
         tvPassword = (TextView) findViewById(R.id.logInPassword);
 
     }
-    //What I need to do here is check if the email and password are valid through the checkin server, and if they are
-    //the move to HostelSearch activity.
+
     public void submitEmailAndPassword(View v){
         Log.d(info, "In submitEmailAndPassword()");
         EmailAndPasswordBean epb = new EmailAndPasswordBean(tvEmail.getText().toString(), tvPassword.getText().toString());

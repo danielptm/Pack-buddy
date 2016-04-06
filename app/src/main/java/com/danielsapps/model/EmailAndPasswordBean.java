@@ -2,6 +2,7 @@ package com.danielsapps.model;
 
 /**
  * Created by daniel on 4/2/16.
+ * @author daniel
  */
 public class EmailAndPasswordBean {
 
