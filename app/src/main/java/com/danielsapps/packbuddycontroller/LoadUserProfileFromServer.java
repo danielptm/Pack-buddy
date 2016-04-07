@@ -19,7 +19,7 @@ import java.net.URL;
  * @author daniel
  */
 public class LoadUserProfileFromServer extends AsyncTask<ProfileBean, ProfileBean, ProfileBean> {
-    String testPath = Paths.myPhone+"/loadProfileAndGuests";
+    String testPath = Paths.atSchool+"/loadProfileAndGuests";
     String email;
     public LoadUserProfileFromServer(String email){
         this.email=email;

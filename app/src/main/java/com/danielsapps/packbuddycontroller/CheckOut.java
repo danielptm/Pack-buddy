@@ -20,7 +20,7 @@ import java.net.URL;
  * @author daniel
  */
 public class CheckOut extends AsyncTask<Void, Void, Void> {
-    String testPath = Paths.myPhone+"/CheckOut";
+    String testPath = Paths.atSchool+"/CheckOut";
     EmailAndHostel eah;
 
     public CheckOut(EmailAndHostel eah){

@@ -22,7 +22,7 @@ import java.net.URL;
 public class LoadProfile extends AsyncTask<ProfileBean, ProfileBean, ProfileBean>{
     String jsString="jsString";
     LocationManager lm;
-    String testPath = Paths.myPhone+"/CheckIn";
+    String testPath = Paths.atSchool+"/CheckIn";
     String email;
     String hostelName=null;
     Gson gson;

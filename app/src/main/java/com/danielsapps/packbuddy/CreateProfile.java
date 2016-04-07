@@ -91,8 +91,11 @@ public class CreateProfile extends AppCompatActivity {
         e.putString("image", image64BitString);
         e.commit();
 
-        SendJson sendJson = new SendJson(stringName, stringEmail,
-                stringHomeCity, stringPassword,image64BitString);
+        SendJson sendJson = new SendJson(
+                stringName, stringEmail,
+                stringHomeCity, stringPassword,
+                image64BitString);
+
         sendJson.execute();
         String message = sendJson.get();
         if(message.equals("Welcome!")) {

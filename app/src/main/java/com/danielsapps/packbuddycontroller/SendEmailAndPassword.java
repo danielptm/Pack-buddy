@@ -24,7 +24,7 @@ import java.net.URL;
 public class SendEmailAndPassword extends AsyncTask<Boolean, Boolean, Boolean>{
     Boolean validUserPasswordAndEmail;
     EmailAndPasswordBean epb;
-    String testPath = Paths.myPhone+"/login";
+    String testPath = Paths.atSchool+"/login";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
     String jsonepb;
     String info="info";

@@ -17,7 +17,7 @@ import java.net.URL;
 public class CheckIn extends AsyncTask<ProfileBean, ProfileBean, ProfileBean> {
     String email;
     ProfileBean pfb=null;
-    String testPath = Paths.myPhone+"/CheckIn";
+    String testPath = Paths.atSchool+"/CheckIn";
     public CheckIn(String email){
 
         this.email = email;

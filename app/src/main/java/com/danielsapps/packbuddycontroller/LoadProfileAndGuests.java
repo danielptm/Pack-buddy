@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class LoadProfileAndGuests extends AsyncTask<ArrayList<ProfileBean>, ArrayList<ProfileBean>, ArrayList<ProfileBean>> {
 
-    String testPath = Paths.myPhone+"/loadProfileAndGuests";
+    String testPath = Paths.atSchool+"/loadProfileAndGuests";
     String email;
     String hostelName=null;
     Gson gson;

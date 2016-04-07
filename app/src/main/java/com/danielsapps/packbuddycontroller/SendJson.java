@@ -17,15 +17,6 @@ import android.util.Log;
  * @author daniel
  */
 public class SendJson extends AsyncTask<String, String, String> {
-    ProfileBean pfb;
-    String info="infoTag";
-    Activity a;
-    String message;
-
-    public SendJson(String name, String email, String homeCity, String password, String b){
-        pfb = new ProfileBean(name, email, homeCity, password, b );
-
-    }
 
     //10.0.1.7
     //192.168.156.45
@@ -33,10 +24,17 @@ public class SendJson extends AsyncTask<String, String, String> {
     //192.168.156.45
     //10.255.228.211
     //192.168.43.26
-    String testPath = Paths.myPhone+"/CreateProfile";
+    String testPath = Paths.atSchool+"/CreateProfile";
     String productionPath="http://37.139.14.185:8080/Pack_pal/CreateProfile";
     String jobpfb;
+    ProfileBean pfb;
+    String info="infoTag";
+    Activity a;
+    String message;
 
+    public SendJson(String name, String email, String homeCity, String password, String b){
+        pfb = new ProfileBean(name, email, homeCity, password, b );
+    }
 
     @Override
     protected String doInBackground(String... strings) {
@@ -53,8 +51,6 @@ public class SendJson extends AsyncTask<String, String, String> {
             OutputStreamWriter osw = new OutputStreamWriter(os);
             Log.i(info, String.valueOf(jobpfb.length()));
             osw.write(jobpfb.toString());
-
-
             osw.flush();
             osw.close();
             os.flush();
@@ -67,7 +63,6 @@ public class SendJson extends AsyncTask<String, String, String> {
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-
         return message;
     }
 }

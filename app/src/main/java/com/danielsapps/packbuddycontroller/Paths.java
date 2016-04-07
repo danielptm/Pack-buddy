@@ -16,4 +16,5 @@ public class Paths {
     public static String myPhone="http://192.168.43.26:8181/Pack_pal/";
     public static String atHome="http://10.0.1.7:8181/Pack_pal/";
     public static String productionPath="http://37.139.14.185:8080/Pack_pal";
+    public static String atSchool="http://192.168.156.70:8181/Pack_pal";
 }

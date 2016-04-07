@@ -59,7 +59,6 @@ public class TakePicture extends AppCompatActivity {
 
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-
             startPreview();
         }
 
@@ -80,8 +79,8 @@ public class TakePicture extends AppCompatActivity {
             if(cam == null){Log.d(info, "Camera equals null");}
 
             Camera.Parameters parameters = cam.getParameters();
-            parameters.setPictureSize(25, 25);
-            parameters.setJpegQuality(1);
+//            parameters.setPictureSize(25, 25);
+//            parameters.setJpegQuality(1);
             cam.setParameters(parameters);
             cam.setDisplayOrientation(90);
             cam.setPreviewDisplay(sv.getHolder());
